@@ -10,15 +10,13 @@ const Combobox = () => {
       const [open, setOpen] = useState(false)
     return (
         <div className={styles.combobox} onClick={() => setOpen(!open) }>
-            {open &&
-                <ul>
-                    {languages.map(el => 
-                    <ComboboxItem {...el}
-                    setSelected={setSelectedItem} 
-                    selected={el.name === selectedItem.name}
-                    />)}
-                </ul>
-            }
+            {<ul style={{display: open ? 'flex' : 'none'}}>
+                {languages.map(el => 
+                <ComboboxItem {...el} 
+                  setSelected={setSelectedItem}
+                  selected={el.name === selectedItem.name}
+                />)}
+            </ul>}
             {selectedItem.language}
         </div>
     )
